@@ -1,0 +1,34 @@
+﻿@page
+@model EmployeeRazorPagesTutorial.Pages.Employees.IndexModel
+@{
+    ViewBag.Title = "List Of Employees";
+}
+
+<style>
+    .btn{
+        width:75px;
+    }
+
+</style>
+
+<div class="card-deck">
+    <div class="card-deck mt-3">
+        @foreach (var employee in Model.Employees)
+        {
+            string phonePath = "~/images/" + (employee.PhotoPath ?? "Tuse_and_Cry.jpg");
+            <div class="card" style="min-width: 18rem; max-width: 30.5%;margin:5px;">
+                <div class="card-header text-center text-primary">
+                    <h4>@employee.Name</h4>
+                </div>
+                <img src="@phonePath" class="card-img-top imageThumnails rounded-circle" asp-append-version="true" />
+                <div class="card-footer text-center">
+                    <a  class="btn btn-primary mt-2" asp-route-id="@employee.Id">View</a>
+                    <a  asp-route-id="@employee.Id" class="btn btn-primary mt-2">Edit</a>
+                   <a class="btn btn-danger mt-2 text-white">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+
+
+</div>
