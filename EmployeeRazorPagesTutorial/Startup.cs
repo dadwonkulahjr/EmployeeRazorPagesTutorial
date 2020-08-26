@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RazorPagesTutorial.Services;
@@ -26,6 +27,13 @@ namespace EmployeeRazorPagesTutorial
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IEmployeeRepository, MockEmployee>();
+            services.Configure<RouteOptions>((options) =>
+            {
+                options.AppendTrailingSlash = true;
+                options.LowercaseQueryStrings = true;
+                options.LowercaseUrls = true;
+              
+            });
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

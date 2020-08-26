@@ -1,0 +1,32 @@
+﻿Constratints in Razor
+Numbers Only
+Min - Integer value must be atleart one...
+Max - Integer value must not exceed 4
+Range - Integer value must be between (1,4) inclusive
+id:min(1):max(4)
+id:range(1,4)
+
+
+Strings
+regex(expression) - Strings must match the pattern specified by the
+regular expression
+alpha {firstName:alpha} which means only alphabet it can except
+A-Z case-incentive
+minlength(value) {firstName:(minlength(5)} atleast 5 characters
+Specified the values
+length(min,max) {firstName:(length(5, 10)} atleast 5 and not more the 10 characters..
+length(length) {firstName:length(10)} specified the exact length of characters...
+
+To create custom constraints
+Create a Class that imeplement IRouteConstraint Interface.. which is present in Microsoft.AspNetCore.Routing namespace
+After Implementing the IRouteConstraint Interface
+next is to register the constraints in configureServices using the dependency Injection...
+
+To Edit a page in Razor Or Mvc
+Is good practice to
+always use hidden Id
+Use BindProperty attribute to get post form data
+
+IFormFile Interface, powerful for uploading photo on the server..
+It has so many useful properties and method...
+to upload a file it has method...

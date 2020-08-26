@@ -1,7 +1,7 @@
-﻿@page
-@model EmployeeRazorPagesTutorial.Pages.Employees.IndexModel
+﻿@page 
+@model IndexModel
 @{
-    ViewBag.Title = "List Of Employees";
+   ViewData["Title"] = "List Of Employees";
 }
 
 <style>
@@ -22,8 +22,8 @@
                 </div>
                 <img src="@phonePath" class="card-img-top imageThumnails rounded-circle" asp-append-version="true" />
                 <div class="card-footer text-center">
-                    <a  class="btn btn-primary mt-2" asp-route-id="@employee.Id">View</a>
-                    <a  asp-route-id="@employee.Id" class="btn btn-primary mt-2">Edit</a>
+                    <a  class="btn btn-primary mt-2" asp-route-Id="@employee.Id" asp-page="/Employees/Details">View</a>
+                    <a  asp-route-Id="@employee.Id" class="btn btn-primary mt-2" asp-page="/Employees/Edit">Edit</a>
                    <a class="btn btn-danger mt-2 text-white">Delete</a>
                 </div>
             </div>
